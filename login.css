@@ -1,0 +1,64 @@
+/* Estilo general del body */
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f2f4f8;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+/* Contenedor del login */
+.login-container {
+  background-color: #fff;
+  padding: 2.5rem;
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+}
+
+/* Título */
+.login-container h2 {
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* Inputs */
+.login-container input {
+  width: 100%;
+  padding: 0.8rem;
+  margin: 0.5rem 0;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+  box-sizing: border-box;
+}
+
+/* Botón */
+.login-container button {
+  width: 100%;
+  padding: 0.8rem;
+  margin-top: 1rem;
+  background-color: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.login-container button:hover {
+  background-color: #1d4ed8;
+}
+
+/* Mensaje de error */
+#error-message {
+  color: red;
+  font-size: 0.9rem;
+  margin-top: 10px;
+}
