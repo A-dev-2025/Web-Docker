@@ -1,0 +1,262 @@
+
+/* === CABECERA FIJA === */
+.cabecera {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 999;
+    background-color: #4a4d91;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    flex-wrap: nowrap;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+/* Logo */
+.img-Foto {
+    width: 100px;
+    height: auto;
+    flex-shrink: 0;
+}
+
+/* Título */
+.titulo {
+   
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 56px;
+    margin: 0 10px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    flex-grow: 1;
+    text-align: center;
+    color: rgb(215, 166, 3);
+}
+
+/* Botón hamburguesa */
+.menu-toggle {
+    display: none;
+    font-size: 36px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #e1e1e175;
+    flex-shrink: 0;
+}
+
+/* Links (escritorio) */
+.links {
+    flex-shrink: 0;
+}
+
+.links ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 20px;
+}
+
+.links a {
+    text-decoration: none;
+    color: #d0cfcf;
+    font-weight: bold;
+    font-size: 24px;
+}
+
+.links a:hover {
+    color: #007BFF;
+}
+
+body {
+    background-color: 	#0e1c2a; /* Puedes cambiar este color al que prefieras */
+    margin: 0;
+    font-family: sans-serif;
+}
+
+.Foto {
+    max-width: 100%;
+    height: auto;
+}
+.foto-contenedor {
+    display: flex;
+    justify-content: center;
+    margin-top: 100px; /* espacio debajo de la cabecera fija */
+}
+
+.contenedores-entrenamiento {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap; /* Permite que se apilen cuando no quepan */
+    gap: 40px;
+    margin: 60px auto;
+    max-width: 1200px;
+    padding: 0 20px;
+}
+/* Tarjetas generales */
+.tarjeta-entrenamiento {
+    position: relative;
+    width: 100%;
+    max-width: 500px;
+    height: 300px;
+    border: 3px solid #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    text-decoration: none;
+    transition: transform 0.4s ease, box-shadow 0.3s ease;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+/* Hover con efecto zoom y sombra */
+.tarjeta-entrenamiento:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 25px rgba(255, 255, 255, 0.5);
+}
+/* Contenido interno */
+.contenido-tarjeta {
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 20px 30px;
+    border-radius: 8px;
+}
+.bloque-categorias {
+    text-align: center;
+    margin: 80px auto 40px;
+    max-width: 800px;
+    padding: 0 20px;
+    font-family: 'Space Grotesk', sans-serif;
+}
+
+.bloque-categorias h2 {
+    font-size: 36px;
+    margin-bottom: 15px;
+    color: #f10404;
+}
+
+.bloque-categorias p {
+    font-size: 18px;
+    color: #B8860B;
+    line-height: 1.5;
+}
+.tarjeta-juegos {
+    background-image: url('imagenes/coche.jpg');
+}
+.tecnica {
+    color: #ccc;
+}
+
+.fa-download {
+    color: #ccc;
+}
+
+
+.cards-container {
+  display: flex;
+  gap: 20px; /* espacio entre cards */
+  flex-wrap: wrap; /* que bajen a la siguiente línea si no caben */
+  justify-content: center; /* centra el contenido */
+  margin-top: 20px;
+}
+
+.card {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 20px;
+  width: 280px; /* ancho fijo para cards */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  transition: transform 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card h3 {
+  margin-bottom: 15px;
+  font-weight: 600;
+  color: #333;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.actions a,
+.actions button {
+  background-color: #4ca1af;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 12px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.actions a:hover,
+.actions button:hover {
+  background-color: #3a8d99;
+}
+
+
+/* === Responsive === */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+    }
+
+    .links {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        width: 100%;
+        background-color: #c1c3c6;
+        display: none;
+        flex-direction: column;
+        padding: 10px 20px;
+        border-top: 1px solid #ccc;
+    }
+
+    .links.active {
+        display: flex;
+    }
+
+    .links ul {
+        flex-direction: column;
+        gap: 10px;
+        width: 100%;
+    }
+
+    .links li {
+        width: 100%;
+    }
+
+    .links a {
+        font-size: 20px;
+        padding: 10px 0;
+        display: block;
+        border-top: 1px solid #f9f9f9;
+    }
+
+    .titulo {
+
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 48px;
+    margin: 0 10px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    flex-grow: 1;
+    text-align: center;
+    color: rgb(215, 166, 3);
+    }
+}
