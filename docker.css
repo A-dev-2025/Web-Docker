@@ -1,0 +1,510 @@
+ 
+    body {
+      
+ 
+       background: #161b22;
+      color: white;
+      font-family: Arial, sans-serif;
+      margin: 0;
+       padding-bottom: 60px;
+     background-image: url('imagenes/dark.jpg'); /* Ruta de tu imagen */
+      background-size: cover;             /* Ajusta al tamaño completo */
+      background-position: center;        /* Centrada */
+      background-repeat: no-repeat;
+    background: #161b22;
+    }
+    .cabecera {
+      background-color: #061d3b;
+     
+      width: 100%;
+      padding: 1px 0;
+       box-shadow: 0 2px 5px rgb(253, 247, 247);
+       display: flex;
+       gap: 20px; /* espacio entre todos los <li> */
+       list-style: none;
+       padding: 0;
+       margin: 20;
+       align-items: center;
+        position: fixed;
+       z-index: 1000; 
+      }
+   
+    .titulo {
+    
+     
+
+      font-family: Georgia, 'Times New Roman', Times, serif;
+      font-size: 42px;
+      color: #285ef1;
+      
+    }
+    .mensaje {
+      display: none; 
+    }
+   
+
+    .filter-buttons {
+      background-color: #071c3700; 
+        padding: 130px 20px;
+       
+      margin-bottom: 30px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .filter-buttons button {
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      width: 120px;
+      height: 25px;
+      font-size: 18px;
+      box-shadow: 0 3px 5px rgb(253, 247, 247);
+    }
+
+    .btn-muy-facil { background-color: #00bfff; }
+    .btn-facil { background-color: #2ecc71; }
+    .btn-medio { background-color: #f1c40f; color: #000; }
+    .btn-dificil { background-color: #c72412; }
+    .btn-todos { background-color: #6e8caa; }
+
+    .btn-muy-facil:hover {
+      background-color: #026789;
+    }
+
+    .btn-muy-facil:active {
+      transform: scale(0.96);
+      box-shadow: 0 0 0 3px rgba(190, 204, 218, 0.4);
+    }
+    .btn-facil:hover {
+      background-color: #02892f;
+    }
+    .btn-facil:active {
+      transform: scale(0.96);
+      box-shadow: 0 0 0 3px rgba(190, 204, 218, 0.4);
+    }
+
+    .btn-medio:hover {
+      background-color: #e79908;
+    }
+    .btn-medio:active {
+      transform: scale(0.96);
+      box-shadow: 0 0 0 3px rgba(190, 204, 218, 0.4);
+    }
+    .btn-dificil:hover {
+      background-color: #790202;
+    }
+    .btn-dificil:active {
+      transform: scale(0.96);
+      box-shadow: 0 0 0 3px rgba(190, 204, 218, 0.4);
+    }
+     .btn-todos:hover {
+      background-color: #032b98;
+    }
+    .btn-todos:active {
+      transform: scale(0.96);
+      box-shadow: 0 0 0 3px rgba(190, 204, 218, 0.4);
+    }
+
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+     
+    }
+
+    .card {
+      background-color: #161b22;
+      border-left: 8px solid;
+      padding: 15px;
+      border-radius: 8px;
+      width: calc(20% - 15px);
+      box-sizing: border-box;
+      display: none;
+      box-shadow: 0 0 0 3px rgba(190, 204, 218, 0.4);
+    
+    }
+
+    .muy-facil { 
+      border-color: #00bfff; 
+      width: 25%;
+      box-sizing: border-box;
+      
+    }
+    .facil {
+       border-color: #2ecc71;
+      width: 25%;
+      box-sizing: border-box;
+      }
+    .medio { 
+      border-color: #f1c40f;
+      width: 25%;
+      box-sizing: border-box;
+     }
+    .dificil {
+       border-color: #e74c3c;
+        width: 25%;
+      box-sizing: border-box;
+      }
+
+    .card h3 {
+      margin-top: 0;
+      font-size: 14px;
+    }
+
+    .card .actions {
+      margin-top: 10px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      justify-content: center;
+
+      
+    }
+
+    .card .actions a, .card .actions button {
+      flex: 1 1 30%;
+      min-width: 80px;
+      background-color: #21262d;
+      border: none;
+      padding: 6px 10px;
+      border-radius: 4px;
+      cursor: pointer;
+      color: white;
+      text-align: center;
+      text-decoration: none;
+    }
+
+    .card .actions a:hover, .card .actions button:hover {
+      background-color: #30363d;
+    }
+   
+
+    .footer {
+     
+      border-top: 1px solid #eeeded;
+     display: flex;
+      
+      justify-content: space-between;
+      background-color: #071c37fc;
+      
+       bottom: 0;
+       left: 0;
+       width: 100%;
+       padding: 0px 0;
+       box-shadow: 0 -2px 5px rgba(0,0,0,0.2);
+       position: fixed;
+    
+    }
+    .footer h3 {
+      color: #A70A15;
+      font-size: 15px;
+      font-weight: 400;
+     
+
+    }
+    .links ul {
+      display: flex;
+    }
+
+    .links ul li {
+      margin-right: 35px;
+    }
+
+     .links ul li a {
+      color: #d3cdcd;
+    }
+    h1 {
+      display: none;
+    }
+    .cuadro1 {
+        
+        width: 400px;
+      height: auto;
+     position: fixed;
+     top: 400px;
+     left: 300px;
+
+    }
+
+    #searchInput {
+      background-color: #00000056;
+      color: #d3cdcd;
+      position: relative;
+      left: 80px;
+    
+      
+  width: 80%;
+  max-width: 300px;        /* Ancho máximo */
+  height: 35px;            /* Altura */
+  
+  font-size: 18px;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  outline: none;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  font-family: 'Segoe UI', sans-serif;
+  padding-left: 20px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
+
+#searchInput:focus {
+  border-color: #4a90e2;
+  box-shadow: 0 0 0 3px rgba(74, 145, 226, 0.523);
+  
+}
+
+.tipo {
+  font-size: 18px;
+}
+.img-cop {
+    max-width: 150px;        /* Ancho máximo */
+  height: 35px;
+   display: flex; 
+}
+.logo {
+    font-size: 12px;
+    display: flex;   
+}
+
+
+  ul {
+      list-style-type: none;
+      
+   
+
+    }
+
+    li {
+      position: relative;
+      font-size: 14px;
+    }
+
+    .dropdown {
+      display: none;
+      position: absolute;
+      left: 0;
+      top: 100%;
+      background: #0805058e;
+      border: 1px solid #ccc;
+      padding: 0.5rem;
+      padding: 30px;
+      z-index: 100;
+      
+      
+    }
+   
+
+    .dropdown li {
+      margin: 0.3rem 0;
+    }
+
+    .dropdown a {
+      color: #d7cece;
+      text-decoration: none;
+    }
+
+    .dropdown a:hover {
+      text-decoration: underline;
+      
+    }
+
+    .show {
+      display: block;
+    }
+
+    a.toggle {
+      cursor: pointer;
+      color: blue;
+      text-decoration: underline;
+      font-size: 16px;
+      padding: 15px;
+    
+    }
+
+
+
+.disabled-link {
+    pointer-events: none;
+    opacity: 0.5;
+    text-decoration: line-through;
+    cursor: not-allowed;
+  }
+
+    .toggle.disabled {
+    pointer-events: none;
+    color: gray;
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+   .dropdown {
+    display: none;
+  }
+
+  .dropdown.show {
+    display: block;
+  }
+
+ 
+
+
+
+
+.red {
+  color: #ffffff;
+  text-decoration: none;
+}
+   .social ul a i { 
+
+   color: #ffffff;
+    transition: color 0.3s ease, transform 0.3s ease;
+    font-size: 2.5em;
+     margin-right: 0.1em;
+    
+  }
+.social ul li a:hover i {
+ 
+  transform: scale(1.2); /* efecto de agrandar ligeramente */
+
+}
+.fa-facebook:hover {
+  color: #3b5998;
+}
+
+.fa-twitter:hover {
+  color: #1da1f2;
+}
+
+.fa-instagram:hover {
+  color: #e4405f;
+}
+
+
+  .social ul {
+  display: flex;
+  gap: 20px; /* espacio entre todos los <li> */
+  list-style: none;
+  padding: 0;
+  margin: 20;
+  align-items: center;
+}
+
+.red {
+  text-decoration: none;
+  color: inherit; /* opcional: para heredar el color del contenedor */
+}
+
+.toggle i {
+  margin-right: 8px; /* espacio entre el ícono y el texto */
+  transition: color 0.3s ease, transform 0.3s ease;
+  color: #f8f6f6;
+  transform: scale(1.6);
+}
+
+.toggle:hover i {
+  color: #007bff; /* azul al pasar el cursor */
+  transform: scale(1.8);
+}
+
+a.toggle {
+  color: white;
+  text-decoration: none;
+}
+a.toggle:hover {
+  color: #007bff; /* un gris claro al pasar el mouse */
+}
+
+/* Contenedor padre del dropdown */
+.has-dropdown {
+  position: relative;
+}
+
+/* Enlace principal */
+.has-dropdown > a {
+  display: inline-block;
+  padding: 10px 20px;
+  color: white;
+  text-decoration: none;
+  background-color: #21262d;
+  border-radius: 8px;
+}
+
+/* Estilo general para la lista dropdown */
+.dropdown {
+  display: none; /* Oculto por defecto */
+  position: absolute;
+  top: 100%;
+ 
+  left: 150px; ;
+  background-color:  #21262d;       /* fondo oscuro */
+  border-radius: 8px;           /* bordes redondeados */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);  /* sombra elegante */
+  width: 200px;
+  padding: 10px 0;
+  z-index: 1000;
+}
+
+/* Mostrar dropdown al pasar el cursor */
+.has-dropdown:hover .dropdown {
+  display: block;
+}
+
+/* Estilo para los <li> dentro del dropdown */
+.dropdown li {
+  padding: 10px 20px;
+  transition: background 0.3s ease;
+}
+
+/* Estilo para los enlaces */
+.dropdown li a {
+  color: white;
+  text-decoration: none;
+  display: block;
+  transition: color 0.3s ease;
+}
+
+/* Hover efecto para fondo y texto */
+.dropdown li:hover {
+  background-color: #333;
+}
+
+.dropdown li a:hover {
+  color: #00aced;  /* azul brillante o puedes cambiarlo */
+}
+
+.btn-exit {
+           /* Se mantiene visible al hacer scroll */
+  right: 2vw;              /* Aprox. 1cm en pantallas grandes, escala en pantallas pequeñas */
+  padding: 0px 20px;
+  background-color: #c0392b;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  
+  
+  font-size: 1rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  transition: background-color 0.3s ease;
+ 
+  text-align: center;         /* Asegura que esté por encima de otros elementos */
+}
+
+/* Hover */
+.btn-exit:hover {
+  background-color: #e74c3c;
+}
+
+/* Responsive: en pantallas pequeñas, ajustar tamaño del botón */
+@media (max-width: 600px) {
+  .btn-todos {
+    top: 200px;
+    right: 4vw;
+    font-size: 0.9rem;
+    padding: 8px 16px;
+  }
+}
