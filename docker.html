@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DockerLabs</title>
+  <link rel="stylesheet" href="index.css" />
+  <link rel="stylesheet" href="docker.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+
+<!-- CABECERA FIJA FUERA DEL BODY -->
+<header class="cabecera">
+  <img class="img-Foto" src="imagenes/copyright.png" alt="Logo" />
+<div class="search-container">
+      <input type="text" id="searchInput" placeholder="🔎  Buscar Maquina...">
+    </div>
+  <h2 class="titulo">Docker-Machins</h2>
+
+  <button class="menu-toggle" aria-label="Abrir menú">☰</button>
+
+  <div class="links" id="menu">
+    <ul>
+      <li><a href="index.html">EXIT</a></li>
+     
+    </ul>
+  </div>
+</header>
+<body>
+
+  <script>
+  if (localStorage.getItem("loggedIn") !== "true") {
+    alert("Debes iniciar sesión para acceder.");
+    window.location.href = "login.html";
+  }
+</script>
+    <div class="filter-buttons">
+
+    <button class="btn-muy-facil" onclick="filterCards('muy-facil'), mostrar_mensaje('mensaje')">Muy Fácil (<span
+        id="count-muy-facil">0</span>)</button>
+    <button class="btn-facil" onclick="filterCards('facil'), mostrar_mensaje2('mensaje2')">Fácil (<span
+        id="count-facil">0</span>)</button>
+    <button class="btn-medio" onclick="filterCards('medio'), mostrar_mensaje3('mensaje3')">Medio (<span
+        id="count-medio">0</span>)</button>
+    <button class="btn-dificil" onclick="filterCards('dificil'), mostrar_mensaje4('mensaje4')">Difícil (<span
+        id="count-dificil">0</span>)</button>
+    <button class="btn-todos" onclick="filterCards('todos'), mostrar_mensaje5('mensaje5')">Todos (<span
+        id="count-todos">0</span>)</button>
+<ul class="menu">
+      <li>
+        <ul class="dropdown">
+          <li><a class="t1"
+              href="https://mega.nz/file/BWRClBZD#5Gqd_-US_J26xLNImdIpai6e7gAGIdUSSev-1dt5rQw">Auto-Osito</a></li>
+          <li><a href="https://mega.nz/file/BWRClBZD#5Gqd_-US_J26xLNImdIpai6e7gAGIdUSSev-1dt5rQw">Archivo 2</a></li>
+          <li><a href="https://mega.nz/file/archivo3">Archivo 3</a></li>
+        </ul>
+      </li>
+    </ul>
+    <a class="toggle"><i class="fa fa-download"></i>​​Descargar Auto Inicio</a>
+
+   
+
+
+  </div>
+
+<div>
+    <h1 class="tipo" id="mensaje">Categoria Muy-Facil</h1>
+    <h1 class="tipo" id="mensaje2">Categoria Facil</h1>
+    <h1 class="tipo" id="mensaje3">Categoria Medio</h1>
+    <h1 class="tipo" id="mensaje4">Categoria Dificil</h1>
+    <h1 class="tipo" id="mensaje5">Categoria Todas</h1>
+  </div>
+<div class="container">
+
+    <!-- Muy fácil -->
+    <div class="card muy-facil">
+      <h3>Lab Muy Fácil 1</h3>
+      <div class="actions"><a href="https://mega.nz/file/ejemplo1" target="_blank">​📂Descargar</a><button
+          onclick="mostrarCuadro1('imagen1')">💡​​Descripción</button><button
+          onclick="window.open('reportes/reportOpenStudio.txt', '_blank')">📖 ​Info</button></div>
+    </div>
+    <div class="card muy-facil">
+      <h3>Lab Muy Fácil 2</h3>
+      <div class="actions"><a href="https://mega.nz/file/ejemplo2"
+          target="_blank">​📂Descargar</a><button>💡​​Descripción</button><button>📖 ​Info</button></div>
+    </div>
+    <div class="card muy-facil">
+      <h3>Lab Muy Fácil 3</h3>
+      <div class="actions"><a href="https://mega.nz/file/ejemplo3"
+          target="_blank">​📂Descargar</a><button>​💡​​Descripción</button><button>📖 ​Info</button></div>
+    </div>
+<div class="card facil">
+      <h3>OpenStudio</h3>
+      <div class="actions"><a href="https://mega.nz/file/tGQy1QRL#h2NZdngmemM12iAeE3wqi9jv1xO9Q1TWd6XUxZwOauE&st"
+          target="_blank">​📂​Des(139Mg)</a><button onclick="mostrarCuadro0('imagen0')">💡​Descripción</button><button
+          onclick="window.open('reportes/reportOpenStudio.txt', '_blank')">📖 ​Info</button></div>
+    </div>
+    <div class="card facil">
+      <h3>Web2</h3>
+      <div class="actions"><a href="https://mega.nz/file/MHBSULLS#FdtVzCFmLuvrt3eT467dnD0TTr_KIxeaZjq2NNsxCRY"
+          target="_blank">​📂​Des(142.2Mg)</a><button onclick="mostrarCuadro1('imagen1')">💡​Descripción</button><button
+          onclick="window.open('reportes/reporterWEB2.txt', '_blank')">📖 ​Info</button></div>
+    </div>
+    <div class="card facil">
+      <h3>MyLogin</h3>
+      <div class="actions"><a href="https://mega.nz/file/wGpHSQRS#YKY4qc-ny6um0KpIC1uo7e-ClnKIf7nd68PsFpwNGTc"
+          target="_blank">​📂​Des(276.9Mg)r</a><button
+          onclick="mostrarCuadro2('imagen2')">💡​Descripción</button><button
+          onclick="window.open('reportes/reporterMyLogin.txt', '_blank')">📖 ​Info</button></div>
+    </div>
+    <div class="card facil">
+      <h3>Trust</h3>
+      <div class="actions"><a href="https://mega.nz/file/4TAEWL5L#P0NymsYGoGsVIvjPwEfDJC9UVY-6CkwFgka85-K5W7w"
+          target="_blank">​📂​Des(140.1Mg)</a><button onclick="mostrarCuadro4('imagen4')">💡​Descripción</button><button
+          onclick="window.open('reportes/reporterTRUST.txt', '_blank')">📖 ​Info</button></div>
+    </div>
+    <div class="card facil">
+      <h3>psycho</h3>
+      <div class="actions"><a href="https://mega.nz/file/dOp2harC#YC_iX2B_CuBgPJeYomtyZxby9LD98JWwSfYJqeAXzns"
+          target="_blank">​📂​Des(149.1Mg)</a><button onclick="mostrarCuadro5('imagen5')">💡​Descripción</button><button
+          onclick="window.open('reportes/reporterPSYCHO.txt', '_blank')">📖 ​Info</button></div>
+    </div>
+    <div class="card facil">
+      <h3>pequeñas-mentirosas</h3>
+      <div class="actions"><a href="https://mega.nz/file/EGYwTTDK#1J9ZexN7j1qC026HbSqjvgX2rndk1io7kt8-oMwivwM"
+          target="_blank">​📂​Des(406.9Mg)</a><button onclick="mostrarCuadro6('imagen6')">💡​Descripción</button><button
+          onclick="window.open('reportes/reporterPEQUENAS-MENTIROSAS.txt', '_blank')">📖 ​Info</button></div>
+    </div>
+    <div class="card facil">
+      <h3>chocolate</h3>
+      <div class="actions"><a href="https://mega.nz/file/YHYQxCBK#V5aaOQiWZYXC261b__3YeYz1O2IxhORT1QEYLZmWocE"
+          target="_blank">​📂​Des(141.4Mg)</a><button onclick="mostrarCuadro7('imagen7')">💡​Descripción</button><button
+          onclick="window.open('reportes/reporterCHOCOLATE.txt', '_blank')">📖 ​Info</button></div>
+    </div>
+<!-- Medio -->
+    <div class="card medio">
+      <h3>Anonymous</h3>
+      <div class="actions"><a href="https://mega.nz/file/4bRUxCbT#rNaXKPpxbbmCnbvpjzSpl_n5lmgV1deQB3XmQVPtLQ4"
+          target="_blank">​📂​Des(121.7Mg)</a><button onclick="mostrarCuadro8('imagen8')">💡​Descripción</button><button
+          onclick="window.open('reportes/reporterANONYMOUS.txt', '_blank')">📖​Info</button></div>
+    </div>
+    <div class="card medio">
+      <h3>Vacaciones</h3>
+      <div class="actions"><a href="https://mega.nz/file/RGR0zKAb#I6zy4DSt_4yB6hVRAFODhdRoDvdzuLCy6ARg2LdxKWU"
+          target="_blank">​📂​Des(126.9Mg)</a><button onclick="mostrarCuadro9('imagen9')">💡​Descripción</button><button
+          onclick="window.open('reportes/reporterVACACIONES.txt', '_blank')">📖 ​Info</button></div>
+    </div>
+    <div class="card medio">
+      <h3>Apolos</h3>
+      <div class="actions"><a href="https://mega.nz/file/wS4QDRzJ#9xSOwupo_xV1K4nWN_VuTbZwvKew8WWz9XTjL52GpnQ"
+          target="_blank">​📂​Des(194.9Mg)</a><button
+          onclick="mostrarCuadro10('imagen10')">💡​Descripción</button><button
+          onclick="window.open('reportes/reporterAPOLOS.txt', '_blank')">📖​Info</button></div>
+    </div>
+    <div class="card medio">
+      <h3>Report</h3>
+      <div class="actions"><a href="https://mega.nz/file/kHAlDbba#2ys8NjpumHeIpQPslhol0RlaL5Sf8K0H4PL1lEVxZhc"
+          target="_blank">​📂​Des(268.6Mg)</a><button
+          onclick="mostrarCuadro11('imagen11')">💡​Descripción</button><button
+          onclick="window.open('reportes/reporterREPORTS.txt', '_blank')">📖 ​Info</button></div>
+    </div>
+    <div class="card medio">
+      <h3>Inclusion</h3>
+      <div class="actions"><a href="https://mega.nz/file/pLwChL7A#0E54ky6tJJgEr9aumoPz9t82xgM7OaalIWPGFFe-4II"
+          target="_blank">​📂​Des(124.3Mg)</a><button
+          onclick="mostrarCuadro12('imagen12')">💡​Descripción</button><button
+          onclick="window.open('reportes/reporterINCLUSION.txt', '_blank')">📖​I nfo</button></div>
+    </div>
+    <div class="card medio">
+      <h3>ficcion</h3>
+      <div class="actions"><a
+          href="https://www.dropbox.com/scl/fi/9lok5hh1dkkkcls325nrl/ficcion.zip?rlkey=9gk6i50pyyb7cdhtbeurp3qza&st=ew8adsul&dl=1"
+          target="_blank">​📂​Descargar</a><button onclick="mostrarCuadro15('imagen15')">💡​Descripción</button><button
+          onclick="window.open('reportes/reporterFICCION.txt', '_blank')">📖 ​Info</button></div>
+    </div>
+    <div class="card medio">
+      <h3>invictus</h3>
+      <div class="actions"><a href="https://mega.nz/file/UeQx2KhZ#vjgYEHQJscxGoKG3s3k2xlMxuO2x39LiocZ8ysbkxO8"
+          target="_blank">​📂​Des(314.0Mg)</a><button
+          onclick="mostrarCuadro16('imagen16')">💡​Descripción</button><button
+          onclick="window.open('reportes/reporterINVICTUS.txt', '_blank')">📖 ​Info</button></div>
+    </div>
+    <div class="card medio">
+      <h3>datos</h3>
+      <div class="actions"><a href="https://mega.nz/file/oORh1KyL#xMppgo-uiuebKyYCItyyWQpIKB9yfIVXKz6SCedVrtY"
+          target="_blank">​📂​Des(77.06Mg)r</a><button
+          onclick="mostrarCuadro17('imagen17')">💡​Descripción</button><button
+          onclick="window.open('reportes/reporterINVICTUS.txt', '_blank')">📖 ​Info</button></div>
+    </div>
+<!-- Difícil -->
+    <div class="card dificil">
+      <h3>Canario</h3>
+      <div class="actions"><a href="https://mega.nz/file/AboQALoI#g9YH_YhImwJ337Em6_M2wsdpvnTSemEYvg32J-R2wzE"
+          target="_blank">​📂​Des(271.8Mg)</a><button
+          onclick="mostrarCuadro13('imagen13')">💡​Descripción</button><button
+          onclick="window.open('reportes/reporterCANARIO.txt', '_blank')">📖 ​Info</button></div>
+    </div>
+    <div class="card dificil">
+      <h3>Vulnerame</h3>
+      <div class="actions"><a href="https://mega.nz/file/ZXJCSIbZ#BO3zqbTMLi4lvSE5mCZwcqn8pZ6c5etEvxpgOkHpBsU"
+          target="_blank">​📂​Des(293.5Mg)</a><button
+          onclick="mostrarCuadro14('imagen14')">💡​Descripción</button><button
+          onclick="window.open('reportes/reporterVULNERAME.txt', '_blank')">📖 ​Info</button></div>
+    </div>
+    <div class="card dificil">
+      <h3>Lab Difícil 3</h3>
+      <div class="actions"><a href="https://mega.nz/file/ejemplo12"
+          target="_blank">​📂​Descargar</a><button>💡​Descripción</button><button>📖Info</button></div>
+    </div>
+    <div class="card dificil">
+      <h3>Lab Difícil 3</h3>
+      <div class="actions"><a href="https://mega.nz/file/ejemplo12"
+          target="_blank">​📂​Descargar</a><button>💡​Descripción</button><button>📖Info</button></div>
+    </div>
+    <div class="card dificil">
+      <h3>Lab Difícil 3</h3>
+      <div class="actions"><a href="https://mega.nz/file/ejemplo12"
+          target="_blank">​📂​Descargar</a><button>💡​Descripción</button><button>📖Info</button></div>
+    </div>
+    <div class="card dificil">
+      <h3>Lab Difícil 3</h3>
+      <div class="actions"><a href="https://mega.nz/file/ejemplo12"
+          target="_blank">​📂​Descargar</a><button>💡​Descripción</button><button>📖Info</button></div>
+    </div>
+
+  </div>
+
+  <script>
+    const toggle = document.querySelector('.toggle');
+    const dropdown = document.querySelector('.dropdown');
+
+    toggle.addEventListener('click', () => {
+      dropdown.classList.toggle('show');
+    });
+  </script>
+<script>
+    function cerrarSesion() {
+      localStorage.removeItem("isLoggedIn");
+      localStorage.removeItem("usuario");
+      window.location.href = "login.html";
+
+    }
+  </script>
+
+<script>
+    function updateCounts() {
+      const categories = ['muy-facil', 'facil', 'medio', 'dificil'];
+      let total = 0;
+
+      categories.forEach(cat => {
+        const count = document.querySelectorAll(`.card.${cat}`).length;
+        document.getElementById(`count-${cat}`).textContent = count;
+        total += count;
+      });
+
+      document.getElementById('count-todos').textContent = total;
+    }
+
+    // Ejecutar al cargar la página
+    window.onload = updateCounts;
+
+    // Funciones para mostrar el mensaje de categoría
+    function ocultarTodosLosMensajes() {
+      const mensajes = ['mensaje', 'mensaje2', 'mensaje3', 'mensaje4', 'mensaje5'];
+      mensajes.forEach(id => document.getElementById(id).style.display = 'none');
+    }
+
+    function mostrar_mensaje(id) {
+      ocultarTodosLosMensajes();
+      document.getElementById(id).style.display = 'block';
+    }
+    function mostrar_mensaje2(id) {
+      ocultarTodosLosMensajes();
+      document.getElementById(id).style.display = 'block';
+    }
+    function mostrar_mensaje3(id) {
+      ocultarTodosLosMensajes();
+      document.getElementById(id).style.display = 'block';
+    }
+    function mostrar_mensaje4(id) {
+      ocultarTodosLosMensajes();
+      document.getElementById(id).style.display = 'block';
+    }
+    function mostrar_mensaje5(id) {
+      ocultarTodosLosMensajes();
+      document.getElementById(id).style.display = 'block';
+    }
+  </script>
+<script>
+    document.getElementById('searchInput').addEventListener('input', function () {
+      const query = this.value.toLowerCase();
+      const cards = document.querySelectorAll('.card');
+
+      cards.forEach(card => {
+        const title = card.querySelector('h3').textContent.toLowerCase();
+        if (title.includes(query)) {
+          card.style.display = 'block';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    });
+  </script>
+
+<script>
+    function filterCards(category) {
+
+      const cards = document.querySelectorAll('.card');
+      cards.forEach(card => {
+        card.style.display = 'none';
+      });
+
+      if (category === 'todos') {
+        cards.forEach(card => {
+          card.style.display = 'block';
+        });
+      } else {
+        const selected = document.querySelectorAll('.' + category);
+        selected.forEach(card => {
+          card.style.display = 'block';
+        });
+      }
+    }
+
+    function updateCounts() {
+      const categories = ['muy-facil', 'facil', 'medio', 'dificil'];
+      let total = 0;
+      categories.forEach(cat => {
+        const count = document.querySelectorAll('.' + cat).length;
+        document.getElementById('count-' + cat).textContent = count;
+        total += count;
+      });
+      document.getElementById('count-todos').textContent = total;
+    }
+
+    filterCards('todos');
+    updateCounts();
+  </script>
+
+  <script>
+    function mostrar_mensaje() {
+      document.getElementById("mensaje").style.display = "block";
+      document.getElementById("mensaje2").style.display = "none";
+      document.getElementById("mensaje3").style.display = "none";
+      document.getElementById("mensaje4").style.display = "none";
+      document.getElementById("mensaje5").style.display = "none";
+
+    }
+  </script>
+  <script>
+    function mostrar_mensaje2() {
+      document.getElementById("mensaje2").style.display = "block";
+      document.getElementById("mensaje").style.display = "none";
+      document.getElementById("mensaje3").style.display = "none";
+      document.getElementById("mensaje4").style.display = "none";
+      document.getElementById("mensaje5").style.display = "none";
+
+    }
+  </script>
+  <script>
+    function mostrar_mensaje3() {
+      document.getElementById("mensaje2").style.display = "none";
+      document.getElementById("mensaje").style.display = "none";
+      document.getElementById("mensaje3").style.display = "block";
+      document.getElementById("mensaje4").style.display = "none";
+      document.getElementById("mensaje5").style.display = "none";
+
+    }
+  </script>
+
+  <script>
+    function mostrar_mensaje4() {
+      document.getElementById("mensaje2").style.display = "none";
+      document.getElementById("mensaje").style.display = "none";
+      document.getElementById("mensaje3").style.display = "none";
+      document.getElementById("mensaje4").style.display = "block";
+      document.getElementById("mensaje5").style.display = "none";
+
+    }
+  </script>
+  <script>
+    function mostrar_mensaje5() {
+      document.getElementById("mensaje2").style.display = "none";
+      document.getElementById("mensaje").style.display = "none";
+      document.getElementById("mensaje3").style.display = "none";
+      document.getElementById("mensaje4").style.display = "none";
+      document.getElementById("mensaje5").style.display = "block";
+
+    }
+  </script>
+
+  <script>
+    function mostrarCuadro0() {
+
+      document.getElementById("imagen0").style.display = "block";
+    }
+    function mostrarCuadro1() {
+
+      document.getElementById("imagen1").style.display = "block";
+    }
+
+    function mostrarCuadro4() {
+      document.getElementById("imagen4").style.display = "block";
+    }
+    function mostrarCuadro2() {
+      document.getElementById("imagen2").style.display = "block";
+    }
+    function mostrarCuadro5() {
+      document.getElementById("imagen5").style.display = "block";
+    }
+    function mostrarCuadro6() {
+      document.getElementById("imagen6").style.display = "block";
+    }
+    function mostrarCuadro7() {
+      document.getElementById("imagen7").style.display = "block";
+    }
+    function mostrarCuadro8() {
+      document.getElementById("imagen8").style.display = "block";
+    }
+    function mostrarCuadro9() {
+      document.getElementById("imagen9").style.display = "block";
+    }
+    function mostrarCuadro10() {
+      document.getElementById("imagen10").style.display = "block";
+    }
+    function mostrarCuadro11() {
+      document.getElementById("imagen11").style.display = "block";
+    }
+    function mostrarCuadro12() {
+      document.getElementById("imagen12").style.display = "block";
+    }
+    function mostrarCuadro13() {
+      document.getElementById("imagen13").style.display = "block";
+    }
+    function mostrarCuadro14() {
+      document.getElementById("imagen14").style.display = "block";
+    }
+    function mostrarCuadro15() {
+      document.getElementById("imagen15").style.display = "block";
+    }
+    function mostrarCuadro16() {
+      document.getElementById("imagen16").style.display = "block";
+    }
+    function mostrarCuadro17() {
+      document.getElementById("imagen17").style.display = "block";
+    }
+  </script>
+
+  <script>
+    function cerrarImagen() {
+      document.getElementById("imagen0").style.display = "none";
+      document.getElementById("imagen1").style.display = "none";
+      document.getElementById("imagen2").style.display = "none";
+      document.getElementById("imagen4").style.display = "none";
+      document.getElementById("imagen5").style.display = "none";
+      document.getElementById("imagen6").style.display = "none";
+      document.getElementById("imagen7").style.display = "none";
+      document.getElementById("imagen8").style.display = "none";
+      document.getElementById("imagen9").style.display = "none";
+      document.getElementById("imagen10").style.display = "none";
+      document.getElementById("imagen11").style.display = "none";
+      document.getElementById("imagen12").style.display = "none";
+      document.getElementById("imagen13").style.display = "none";
+      document.getElementById("imagen14").style.display = "none";
+      document.getElementById("imagen15").style.display = "none";
+      document.getElementById("imagen16").style.display = "none";
+      document.getElementById("imagen17").style.display = "none";
+
+    }
+  </script>
+
+  <div class="Cuadro1">
+    <img id="imagen0" src="imagenes/CuadroOpenStrudio.png" class="cuadro1" alt="" onclick="cerrarImagen()">
+    <img id="imagen1" src="imagenes/Cuadro Descripcion.png" class="cuadro1" alt="" onclick="cerrarImagen()">
+    <img id="imagen2" src="imagenes/CuadroMyLogin.png" class="cuadro1" alt="" onclick="cerrarImagen()">
+    <img id="imagen4" src="imagenes/CuadroTrust.png" class="cuadro1" alt="" onclick="cerrarImagen()">
+    <img id="imagen5" src="imagenes/CuadroPhyso.png" class="cuadro1" alt="" onclick="cerrarImagen()">
+    <img id="imagen6" src="imagenes/CuadroPequenas-Mentirosas.png" class="cuadro1" alt="" onclick="cerrarImagen()">
+    <img id="imagen7" src="imagenes/CuadroChocolate.png" class="cuadro1" alt="" onclick="cerrarImagen()">
+    <img id="imagen8" src="imagenes/CuadroAnonymous.png" class="cuadro1" alt="" onclick="cerrarImagen()">
+    <img id="imagen9" src="imagenes/CuadroVacaciones.png" class="cuadro1" alt="" onclick="cerrarImagen()">
+    <img id="imagen10" src="imagenes/CuadroApolo.png" class="cuadro1" alt="" onclick="cerrarImagen()">
+    <img id="imagen11" src="imagenes/CuadroReport.png" class="cuadro1" alt="" onclick="cerrarImagen()">
+    <img id="imagen12" src="imagenes/CuadroInclusion.png" class="cuadro1" alt="" onclick="cerrarImagen()">
+    <img id="imagen13" src="imagenes/CuadroCanario.png" class="cuadro1" alt="" onclick="cerrarImagen()">
+    <img id="imagen14" src="imagenes/CuadroVulnerame.png" class="cuadro1" alt="" onclick="cerrarImagen()">
+    <img id="imagen15" src="imagenes/CuadroFiccion.png" class="cuadro1" alt="" onclick="cerrarImagen()">
+    <img id="imagen16" src="imagenes/CuadroInvictus.png" class="cuadro1" alt="" onclick="cerrarImagen()">
+    <img id="imagen17" src="imagenes/CuadroDatos.png" class="cuadro1" alt="" onclick="cerrarImagen()">
+  </div>
+
+  <script>
+   
+
+    document.getElementById("mensaje5").style.display = "block"
+    document.getElementById("imagen1").style.display = "none"
+    document.getElementById("imagen2").style.display = "none"
+    document.getElementById("imagen4").style.display = "none"
+
+    document.getElementById("imagen5").style.display = "none"
+    document.getElementById("imagen6").style.display = "none"
+    document.getElementById("imagen7").style.display = "none"
+    document.getElementById("imagen8").style.display = "none"
+    document.getElementById("imagen9").style.display = "none"
+    document.getElementById("imagen10").style.display = "none"
+    document.getElementById("imagen11").style.display = "none"
+    document.getElementById("imagen12").style.display = "none"
+    document.getElementById("imagen13").style.display = "none"
+    document.getElementById("imagen14").style.display = "none"
+    document.getElementById("imagen15").style.display = "none"
+    document.getElementById("imagen16").style.display = "none"
+    document.getElementById("imagen17").style.display = "none"
+
+
+    document.getElementById("imagen0").style.display = "none"
+
+  </script>
+
+
+
+</body>
