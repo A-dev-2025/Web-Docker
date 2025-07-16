@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DockerLabs</title>
+  <link rel="stylesheet" href="index.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+  <!-- CABECERA -->
+  <header class="cabecera">
+    <img class="img-Foto" src="imagenes/copyright.png" alt="Logo" />
+    <h2 class="titulo">Docker-Machins</h2>
+    <button class="menu-toggle" aria-label="Abrir menú">☰</button>
+    <div class="links" id="menu">
+      <ul>
+        <li><a href="#">Inicio</a></li>
+        <li><a href="#entretenimiento">Entretenimiento</a></li>
+        <li><a href="#retos-destacados">Retos</a></li>
+        <li><a href="#repositorios">Repositorios</a></li>
+        <li><a href="#contactar">Contactar</a></li>
+       
+        <li><a href="login.html" id="login-link">MyLogin</a></li>
+        <li><a href="#" id="logout-link" style="display: none; color: red; cursor: pointer;">Cerrar sesión</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <div class="foto-contenedor">
+    <img class="Foto" src="imagenes/copyright.png" alt="Logo" width="250" height="320">
+  </div>
+
+  <div class="texto-bienvenida">
+    <h1>The Docker-Machins</h1>
+    <h2>> Crea. Vulnera. Explota. Repite.</h2>
+    <p>
+      La plataforma líder en entrenamiento de ciberseguridad, soluciones empresariales y desafíos prácticos de hacking diseñados por expertos de la industria.
+      Y lo mejor de todo: ¡Todo es completamente gratis!<br>
+      ¡Ponte a prueba, aprende y compite con la comunidad hacker!
+    </p>
+  </div>
+
+  <div class="bloque-categorias" id="entretenimiento">
+    <h2>Categorías de Entrenamiento</h2>
+    <p>Explora nuestras rutas de aprendizaje diseñadas para llevarte de principiante a experto.</p>
+  </div>
+
+  <div class="contenedores-entrenamiento" >
+    <a href="juegos.html" class="tarjeta-entrenamiento tarjeta-juegos">
+      <div class="contenido-tarjeta">
+        <h3>Modo Juegos</h3>
+      </div>
+    </a>
+    <a href="docker.html" class="tarjeta-entrenamiento tarjeta-docker">
+      <div class="contenido-tarjeta">
+        <h3>Máquinas Docker</h3>
+      </div>
+    </a>
+  </div>
+<!-- Aquí creo este div para que se centre bien el Reto-Destacado -->
+ <div id="retos-destacados">
+  <p>
+    <br><br>
+    <br><br>
+    <br><br>
+    <br><br>
+  </p>
+ </div>
+
+
+  <div class="retos-destacados" >
+    <h2>Retos Destacados</h2>
+    <p>
+      Pon a prueba tus habilidades Descarga esta maquina del mundo real y  completa los desafíos <em>MAQUINA DOCKER</em>.
+    </p>
+  </div>
+  <!-- Contenedor padre para los cards -->
+  <!-- Puedes agregar más tarjetas aquí -->
+  <!-- <div class="card medio">...</div> -->
+<h3 style="text-align:center; color: #4caf50; font-weight: bold;">🎲 Reto aleatorio cargado</h3>
+
+<div class="bloque-protegido">
+
+  <div class="card medio2">
+    <h3>Report</h3>
+    <div class="actions">
+      <a href="https://mega.nz/file/kHAlDbba#2ys8NjpumHeIpQPslhol0RlaL5Sf8K0H4PL1lEVxZhc" target="_blank">📂 Des(268.6Mg)</a>
+      <button onclick="mostrarImagen(this)">💡 MEDIA</button>
+      <button onclick="window.open('reportes/reporterREPORTS.txt', '_blank')">📖 Reportes</button>
+      <img id="mediaImage" class="media-img" src="imagenes/CuadroReport.png" alt="Cuadro Report">
+    </div>
+  </div>
+<div class="card medio2">
+      <h3>Inclusion</h3>
+      <div class="actions">
+        <a href="https://mega.nz/file/pLwChL7A#0E54ky6tJJgEr9aumoPz9t82xgM7OaalIWPGFFe-4II" target="_blank">​📂​Des(124.3Mg)</a>
+        <button onclick="mostrarImagen(this)">💡​MEDIA</button>
+        <button onclick="window.open('reportes/reporterINCLUSION.txt', '_blank')">📖​Reportes</button>
+        <img id="mediaImage" class="media-img" src="imagenes/CuadroInclusion.png" alt="Cuadro Inclusion">
+      </div>         
+</div>
+
+    
+
+  <div class="card dificil2">
+      <h3>Vulnerame</h3>
+      <div class="actions">
+          <a href="https://mega.nz/file/ZXJCSIbZ#BO3zqbTMLi4lvSE5mCZwcqn8pZ6c5etEvxpgOkHpBsU" target="_blank">​📂​Des(293.5Mg)</a>
+          <button onclick="mostrarImagen(this)">💡​DIFICIL</button>
+          <button onclick="window.open('reportes/reporterVULNERAME.txt', '_blank')">📖 ​Reportes</button>
+          <img id="mediaImage" class="media-img" src="imagenes/CuadroVulnerame.png" alt="Cuadro Vulnerame">
+          </div>
+          
+
+
+    </div>
+  <div class="card medio">
+      <h3>Anonymous</h3>
+      <div class="actions">
+        <a href="https://mega.nz/file/4bRUxCbT#rNaXKPpxbbmCnbvpjzSpl_n5lmgV1deQB3XmQVPtLQ4" target="_blank">​📂​Des(121.7Mg)</a>
+          <button onclick="mostrarImagen(this)">💡​MEDIA</button>
+          <button onclick="window.open('reportes/reporterANONYMOUS.txt', '_blank')">📖​Reportes</button>
+          <img id="mediaImage" class="media-img" src="imagenes/CuadroAnonymous.png" alt="Cuadro Anonymous">
+          </div>
+          
+    </div>
+
+</div>
+
+<!-- Aquí se cargará el contenido dinámico -->
+
+  <div id="cuadro-dinamico"></div>
+
+
+<!-- Aquí creo este div para que se centre bien el Repositorio -->
+<div id="repositorios"></div>
+
+<div class="locked">
+  
+
+  <div class="Repositorio">
+      <h2>Repositorio Github</h2>
+      <p>Repositorios en github que podrás descargar con los enlaces <em>Github</em>.</p>
+  </div>
+
+  <div class="repos-container">
+    <div class="repo-card">
+      <h3>Buscador-NMAP</h3>
+      <p>Realiza diferentes Scaners con nmap.<br></p>
+      <a href="https://github.com/A-dev-2025/Nuevo-buscador-nmap.git" target="_blank" class="repo-btn">Ver en GitHub</a>
+    </div>
+    <div class="repo-card">
+      <h3>Escaneo-Automat.</h3>
+      <p>Escanea la ip de diferentes modos .</p>
+      <a href="https://github.com/A-dev-2025/Escaneo-Automatizado.git" target="_blank" class="repo-btn">Ver en GitHub</a>
+    </div>
+    <div class="repo-card">
+      <h3>INICIO DE CONTENEDORES</h3>
+      <p>Script Reformado a nivel Visual .</p>
+      <a href="https://github.com/A-dev-2025/SCRIPT-REFORMADO-INICIO-CONTENEDORES.git" target="_blank" class="repo-btn">Ver en GitHub</a>
+    </div>
+    <div class="repo-card">
+      <h3>Apertura-Contenedor</h3>
+      <p>Script abre dos contenedores a la vez.</p>
+      <a href="https://github.com/A-dev-2025/Script_Apertura_CONTENEDORES_DOCKER.git" target="_blank" class="repo-btn">Ver en GitHub</a>
+    </div>
+    <div class="repo-card">
+      <h3>Proyecto 5</h3>
+      <p>Descripción breve del proyecto 5.</p>
+      <a href="https://github.com/usuario/repositorio5" target="_blank" class="repo-btn">Ver en GitHub</a>
+    </div>
+  </div>
+</div>
+
+<div class="Contactar" id="contactar">
+  <h2>Desarroyador</h2>
+  <p>Puedes contactar con el creador de la página a través de las siguientes <em>REDES SOCIALES</em>.</p>
+
+  <div class="perfil-dev">
+    <img src="imagenes/foto2.png" alt="Foto del desarrollador" class="foto-dev" />
+    <h3>Alfonso Company</h3>
+    <p class="bio">
+      Desarrollador web y apasionado de la ciberseguridad. Con más de 5 años de experiencia en creación de entornos educativos gamificados, ha participado en proyectos de hacking ético, formación y plataformas CTF.
+    </p>
+
+    <div class="redes-sociales">
+       <a href="https://x.com/Alfonso11498702" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+       <a href="https://t.me/AlfonsoCommunity" target="_blank" aria-label="Telegram"><i class="fab fa-telegram-plane"></i></a>
+       <a href="https://twitch.tv" target="_blank" aria-label="Twitch"><i class="fab fa-twitch"></i></a>
+       <a href="https://x.com" target="_blank" aria-label="X"><i class="fab fa-x-twitter"></i></a>
+    </div>
+  </div>
+</div>
+	
+
+  <main style="padding-top: 150px;"></main>
+
+  <!-- Script del menú móvil -->
+  <script>
+    const toggle = document.querySelector('.menu-toggle');
+    const menu = document.getElementById('menu');
+
+    toggle.addEventListener('click', () => {
+      menu.classList.toggle('active');
+    });
+  </script>
+
+  <!-- Script de login/logout y protección de contenedores -->
+<script>
+  const logoutLink = document.getElementById("logout-link");
+  const loginLink = document.getElementById("login-link");
+  const contenedor = document.querySelector(".contenedores-entrenamiento");
+  const contenedorProtegido = document.querySelector(".bloque-protegido");
+
+  const loggedIn = localStorage.getItem("loggedIn") === "true";
+
+  const proteger = (bloque) => {
+    if (!bloque) return;
+
+    bloque.style.pointerEvents = "none";
+    bloque.style.opacity = "0.5";
+    bloque.querySelectorAll("a, button").forEach(el => {
+      el.addEventListener("click", function(e) {
+        e.preventDefault();
+        alert("Debes iniciar sesión para acceder a esta sección.");
+      });
+    });
+  };
+
+  const habilitar = (bloque) => {
+    if (!bloque) return;
+
+    bloque.style.pointerEvents = "auto";
+    bloque.style.opacity = "1";
+  };
+
+  if (loggedIn) {
+    logoutLink.style.display = "inline";
+    loginLink.style.display = "none";
+
+    habilitar(contenedor);
+    habilitar(contenedorProtegido);
+  } else {
+    logoutLink.style.display = "none";
+    loginLink.style.display = "inline";
+
+    proteger(contenedor);
+    proteger(contenedorProtegido);
+  }
+
+  logoutLink.addEventListener("click", function(e) {
+    e.preventDefault();
+    localStorage.removeItem("loggedIn");
+    window.location.href = "index.html";
+  });
+</script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const cards = document.querySelectorAll(".bloque-protegido .card");
+
+    // Oculta todos los contenedores
+    cards.forEach(card => card.style.display = "none");
+
+    // Si hay al menos uno, muestra uno aleatorio
+    if (cards.length > 0) {
+      const randomIndex = Math.floor(Math.random() * cards.length);
+      cards[randomIndex].style.display = "block";
+    }
+  });
+</script>
+
+ <script>
+  function mostrarImagen(boton) {
+  const container = boton.parentElement;
+  const img = container.querySelector(".media-img");
+  if (!img) return;
+
+  // Si el display está vacío, lo asumimos como visible
+  const estiloActual = window.getComputedStyle(img).display;
+
+  if (estiloActual === "none") {
+    img.style.display = "block";
+  } else {
+    img.style.display = "none";
+  }
+}
+</script>
+
+<script>
+  window.addEventListener("DOMContentLoaded", function () {
+    if (localStorage.getItem("loggedIn") === "true") {
+      document.querySelectorAll('.locked').forEach(el => {
+        el.classList.remove('locked');
+      });
+    }
+  });
+</script>
+</body>
+</html>
