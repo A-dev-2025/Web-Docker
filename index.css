@@ -1,17 +1,17 @@
 /* === CABECERA FIJA === */
 .cabecera {
-    position: fixed; /* La cabecera permanece fija en la parte superior al hacer scroll */
+    position: fixed;
     top: 0;
     left: 0;
     right: 0;
-    z-index: 999; /* Se asegura de que esté por encima de otros elementos */
-    background-color: #4a4d91; /* Color de fondo azul oscuro */
-    display: flex; /* Usa Flexbox para alinear contenido interno */
-    align-items: center; /* Centra verticalmente */
-    justify-content: space-between; /* Espacia el logo, título y menú */
+    z-index: 999;
+    background: linear-gradient(90deg, #042d57 0%, #064374 50%, #031c36 100%);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     padding: 10px 20px;
     flex-wrap: nowrap;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1); /* Sombra inferior ligera */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
 }
 
 /* Logo */
@@ -71,7 +71,9 @@
 
 /* === ESTILOS GENERALES === */
 body {
-    background-color: #0e1c2a; /* Fondo azul oscuro */
+    background: linear-gradient(135deg, #0e1c2a 0%, #162c3f 50%, #0a141f 100%);
+    color: #ffffff;
+    min-height: 100vh;
     margin: 0;
     font-family: sans-serif;
 }
@@ -137,60 +139,104 @@ body {
 }
 
 /* === TARJETAS DE ENTRENAMIENTO === */
+/* === TARJETAS DE ENTRENAMIENTO (MEJORADAS) === */
 .contenedores-entrenamiento {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap; /* Se apilan en pantallas pequeñas */
-    gap: 40px;
-    margin: 60px auto;
-    max-width: 1200px;
-    padding: 0 20px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap; /* Se apilan en pantallas pequeñas */
+  gap: 40px;
+  margin: 60px auto;
+  max-width: 1200px;
+  padding: 0 20px;
 }
 
 .tarjeta-entrenamiento {
-    position: relative;
-    width: 100%;
-    max-width: 500px;
-    height: 300px;
-    border: 3px solid #fff;
-    border-radius: 12px;
-    overflow: hidden;
-    text-decoration: none;
-    transition: transform 0.4s ease, box-shadow 0.3s ease;
-    background-size: cover;
-    background-position: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  position: relative;
+  width: 100%;
+  max-width: 500px;
+  height: 320px;
+  border: none;
+  border-radius: 16px;
+  overflow: hidden;
+  text-decoration: none;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
 }
 
 /* Efecto al pasar el ratón */
 .tarjeta-entrenamiento:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 25px rgba(255, 255, 255, 0.5);
+  transform: scale(1.06);
+  box-shadow: 0 15px 35px rgba(255, 255, 255, 0.2);
 }
 
 /* Contenido dentro de la tarjeta */
 .contenido-tarjeta {
-    background-color: rgba(0, 0, 0, 0.6);
-    padding: 20px 30px;
-    border-radius: 8px;
+  background: rgba(0, 0, 0, 0.65);
+  padding: 25px 30px;
+  border-radius: 12px;
+  text-align: center;
+  backdrop-filter: blur(6px);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
 
+/* Título de la tarjeta */
 .contenido-tarjeta h3 {
-    font-size: 28px;
-    color: #fff;
-    font-family: 'Space Grotesk', sans-serif;
-    margin: 0;
+  font-size: 26px;
+  color: #f9a826;
+  font-family: 'Space Grotesk', sans-serif;
+  margin: 10px 0 5px;
 }
 
-/* Imágenes de fondo para cada tarjeta */
+/* Texto secundario */
+.contenido-tarjeta p {
+  font-size: 16px;
+  color: #dddddd;
+  margin-top: 8px;
+  line-height: 1.4;
+  font-family: 'Space Grotesk', sans-serif;
+  text-align: center;
+}
+
+/* Ícono dentro de la tarjeta */
+.icono-tarjeta {
+  font-size: 40px;
+  color: #00c4cc;
+  margin-bottom: 12px;
+  display: block;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
+}
+
+/* Fondos específicos */
 .tarjeta-juegos {
-    background-image: url('imagenes/gamer.jpg');
+  background-image: url('imagenes/gamer.jpg');
 }
 
 .tarjeta-docker {
-    background-image: url('imagenes/Dockers.jpg');
+  background-image: url('imagenes/Dockers.jpg');
+}
+
+/* RESPONSIVE */
+@media (max-width: 600px) {
+  .tarjeta-entrenamiento {
+    height: 280px;
+  }
+
+  .contenido-tarjeta h3 {
+    font-size: 22px;
+  }
+
+  .contenido-tarjeta p {
+    font-size: 14px;
+  }
+
+  .icono-tarjeta {
+    font-size: 32px;
+  }
 }
 
 /* === RETOS DESTACADOS === */
@@ -223,7 +269,7 @@ body {
     padding: 20px;
     border-radius: 10px;
     background-color: #5f809300; /* Transparente con matiz */
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+   
 }
 
 .bloque-protegido .card {
@@ -444,7 +490,7 @@ html {
 
 .Repositorio h2 {
     font-size: 36px;
-    color: #00c4cc; /* Azul claro llamativo */
+     color: #eb3535;
     margin-bottom: 20px;
 }
 
@@ -527,6 +573,35 @@ html {
   font-weight: bold;
   z-index: 1;
 }
+/* === MOVIMIENTO DEL DADO === */
+.titulo-dado {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 4rem; /* Puedes cambiar esto para ajustar el tamaño */
+  font-weight: bold;
+  color: #4caf50;
+  text-align: center;
+  margin: 20px auto;
+  transition: transform 0.6s;
+}
+
+.animar-dado {
+  animation: girarDado 0.8s ease-in-out;
+}
+
+.bloque-protegido .card {
+  display: none;
+}
+.Contactar h2 {
+     color: #eb3535;
+}
+
+@keyframes girarDado {
+  0% { transform: rotate(0deg) scale(1); }
+  50% { transform: rotate(360deg) scale(1.4); }
+  100% { transform: rotate(720deg) scale(1); }
+}
 
 /* === RESPONSIVE === */
 @media (max-width: 768px) {
@@ -540,7 +615,7 @@ html {
         left: 0;
         right: 0;
         width: 100%;
-        background-color: #c1c3c6;
+        background-color: #042d57;
         display: none;
         flex-direction: column;
         padding: 10px 20px;
@@ -579,4 +654,51 @@ html {
         text-align: center;
         color: rgb(215, 166, 3);
     }
+}
+
+/* === FAQ INTERACTIVO === */
+.faq-section {
+ 
+  padding: 60px 20px;
+  color: #ffffff;
+  font-family: 'Space Grotesk', sans-serif;
+  text-align: center;
+}
+
+.faq-section h2 {
+  font-size: 36px;
+  margin-bottom: 40px;
+  color: #00c4cc;
+}
+
+.faq-container {
+  max-width: 900px;
+  margin: 0 auto;
+  display: grid;
+  gap: 30px;
+}
+
+.faq-item {
+  background-color: #1f2a38;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+  transition: transform 0.3s ease;
+  text-align: left;
+}
+
+.faq-item:hover {
+  transform: translateY(-5px);
+}
+
+.faq-item h3 {
+  font-size: 20px;
+  color: #f9a826;
+  margin-bottom: 10px;
+}
+
+.faq-item p {
+  font-size: 16px;
+  color: #dddddd;
+  line-height: 1.5;
 }
