@@ -5,151 +5,30 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Login - DockerLabs</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: 'Poppins', sans-serif;
-    }
-
-    body {
-      height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background: linear-gradient(135deg, #2c3e50, #4ca1af);
-      color: #333;
-    }
-
-    .login-container {
-      background: rgba(255, 255, 255, 0.15);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      padding: 2.5rem 3rem;
-      border-radius: 12px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-      width: 350px;
-      text-align: center;
-      border: 1px solid rgba(255, 255, 255, 0.3);
-    }
-
-    /* Logo arriba */
-    .logo {
-      width: 80px;
-      margin: 0 auto 1.5rem;
-      display: block;
-    }
-
-    .login-container h2 {
-      margin-bottom: 1.5rem;
-      font-weight: 600;
-      color: #fff;
-      letter-spacing: 1px;
-      text-shadow: 1px 1px 4px rgba(0,0,0,0.3);
-    }
-
-    form {
-      display: flex;
-      flex-direction: column;
-    }
-
-    label {
-      margin-bottom: 0.25rem;
-      font-weight: 500;
-      color: #f0f0f0;
-      text-align: left;
-      font-size: 0.9rem;
-      text-shadow: 0 1px 2px rgba(0,0,0,0.3);
-    }
-
-    input[type="text"],
-    input[type="password"] {
-      padding: 0.7rem 1rem;
-      margin-bottom: 1.25rem;
-      border: 1.5px solid rgba(255,255,255,0.6);
-      border-radius: 8px;
-      font-size: 1rem;
-      background: rgba(255,255,255,0.4);
-      color: #2c3e50;
-      transition: border-color 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
-      box-shadow: inset 0 2px 5px rgba(255,255,255,0.6);
-    }
-
-    input[type="text"]::placeholder,
-    input[type="password"]::placeholder {
-      color: #2c3e50cc;
-    }
-
-    input[type="text"]:focus,
-    input[type="password"]:focus {
-      border-color: #4ca1af;
-      background: #fff;
-      outline: none;
-      box-shadow: 0 0 8px #4ca1af;
-    }
-
-    button[type="submit"] {
-      padding: 0.75rem;
-      background: #4ca1af;
-      color: white;
-      font-weight: 600;
-      font-size: 1.1rem;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      transition: background-color 0.3s ease, transform 0.2s ease;
-      box-shadow: 0 5px 12px rgba(76,161,175,0.6);
-    }
-
-    button[type="submit"]:hover {
-      background: #3a8d99;
-      transform: scale(1.05);
-      box-shadow: 0 8px 20px rgba(58,141,153,0.8);
-    }
-
-    #error-message {
-      margin-top: 0.5rem;
-      font-size: 0.9rem;
-      color: #ff6b6b;
-      min-height: 1.2em;
-      text-shadow: 0 1px 2px rgba(0,0,0,0.25);
-    }
-
-    /* Icono SVG estilo */
-    svg {
-      width: 20px;
-      height: 20px;
-      fill: white;
-      filter: drop-shadow(0 0 1px rgba(0,0,0,0.3));
-    }
-
-    @media (max-width: 400px) {
-      .login-container {
-        width: 90%;
-        padding: 2rem;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="login.css" />
 </head>
 <body>
   <div class="login-container">
-    <!-- Logo: cambia src por tu imagen o usa este SVG -->
     <img class="logo" src="imagenes/copyright.png" alt="Logo DockerLabs" />
-
     <h2>Iniciar Sesión</h2>
+
+    <!-- Botón modo oscuro -->
+    <button id="dark-mode-toggle">🌙 Modo Oscuro</button>
+
     <form id="login-form" autocomplete="off">
       <label for="username">Usuario</label>
       <input type="text" id="username" name="username" placeholder="Ingresa tu usuario" required />
+
       <label for="password">Contraseña</label>
       <input type="password" id="password" name="password" placeholder="Ingresa tu contraseña" required />
+
+      <div class="g-recaptcha"
+           data-sitekey="6LdHsnArAAAAAEy-XtwEraCtlEV5Ddsfp2335Lg4"
+           data-callback="onCaptchaSuccess">
+      </div>
+
       <button type="submit" aria-label="Entrar">
-        <!-- Ícono de login SVG -->
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
           <path d="M10 17l5-5-5-5v3H3v4h7v3zM19 19h-2v-2h2v2zm0-12h-2v2h2V7z"/>
         </svg>
         Entrar
@@ -158,27 +37,65 @@
     </form>
   </div>
 
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
   <script>
-    (function(){
-      const keys = ['username','value','password','textContent','style','color','getElementById','addEventListener','preventDefault','setItem','location','href','loggedIn','admin','1234','Usuario o contraseña incorrectos.'];
-      const $ = function(i){ return keys[i]; };
+    // Modo oscuro automático/manual
+    const toggleBtn = document.getElementById('dark-mode-toggle');
+    const body = document.body;
 
-      document[$(6)]('login-form')[$(7)]('submit', function(e){
-        e[$(8)]();
-        const user = document[$(6)]('username')[$(1)];
-        const pass = document[$(6)]('password')[$(1)];
-        const errorMsg = document[$(6)]('error-message');
-        const validUser = {username: $(13), password: $(14)};
+    function setDarkMode(enabled) {
+      if (enabled) {
+        body.classList.add('dark-mode');
+        toggleBtn.textContent = '☀️ Modo Claro';
+        localStorage.setItem('darkMode', 'enabled');
+      } else {
+        body.classList.remove('dark-mode');
+        toggleBtn.textContent = '🌙 Modo Oscuro';
+        localStorage.setItem('darkMode', 'disabled');
+      }
+    }
 
-        if(user === validUser.username && pass === validUser.password){
-          localStorage[$(9)]($(12), 'true');
-          window[$(10)][$(11)] = 'index.html';
-        } else {
-          errorMsg[$(3)] = $(15);
-          errorMsg[$(4)][$(5)] = 'red';
-        }
-      });
-    })();
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const saved = localStorage.getItem('darkMode');
+
+    if (saved === 'enabled') {
+      setDarkMode(true);
+    } else if (saved === 'disabled') {
+      setDarkMode(false);
+    } else if (prefersDark) {
+      setDarkMode(true);
+    }
+
+    toggleBtn.addEventListener('click', () => {
+      setDarkMode(!body.classList.contains('dark-mode'));
+    });
+
+    // Login básico
+    const $ = (i) => ['username','value','password','textContent','style','color','getElementById','addEventListener','preventDefault','setItem','location','href','loggedIn','admin','1234','Usuario o contraseña incorrectos.','Debes verificar el reCAPTCHA.'][i];
+    let captchaValidated = false;
+
+    window.onCaptchaSuccess = () => captchaValidated = true;
+
+    document[$(6)]('login-form')[$(7)]('submit', (e) => {
+      e[$(8)]();
+      const user = document[$(6)]('username')[$(1)];
+      const pass = document[$(6)]('password')[$(1)];
+      const msg = document[$(6)]('error-message');
+
+      if (!captchaValidated) {
+        msg[$(3)] = $(16);
+        msg[$(4)][$(5)] = 'orange';
+        return;
+      }
+
+      if (user === $(13) && pass === $(14)) {
+        localStorage[$(9)]($(12), 'true');
+        window[$(10)][$(11)] = 'index.html';
+      } else {
+        msg[$(3)] = $(15);
+        msg[$(4)][$(5)] = 'red';
+      }
+    });
   </script>
 </body>
 </html>
