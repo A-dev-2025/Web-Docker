@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -22,55 +23,62 @@
   <div class="links" id="menu">
     <ul>
       <li><a href="index.html">EXIT</a></li>
-     
+
     </ul>
   </div>
 </header>
 
 <body>
 
-<script>
-  if (localStorage.getItem("loggedIn") !== "true") {
-    alert("Debes iniciar sesión para acceder.");
-    window.location.href = "login.html";
-  }
-</script>
-<div class="foto-contenedor">
-       <img class="Foto" src="imagenes/copyright.png" alt="Logo" width="250" height="320">
-</div> 
-<div class="bloque-categorias">
-       <h2>Categorías Juegos Ordenador</h2>
-        <p>
-           Jego diseñado para Pc, solo admite Volante Logitech G-29.
-        </p>
-    </div> 
-<div class="contenedores-entrenamiento">
-  <!-- Contenedor 1 -->
-  <a href="https://mega.nz/folder/AGAVkAKa#oD3nKWniI1cBlIuVcu235Q" class="tarjeta-entrenamiento tarjeta-juegos">
-    <div class="contenido-tarjeta">
-      <h3 i class="fa fa-download">  - Descargar</h3>
-    </div>
-  </a>
-  <p class="tecnica">
-    CARACTERISTICAS<br>
-     -Descarga Archibo ZIP (2.3 gb).<br>
-     -Memoria RAM min 16 gb.<br><br>
-    OPCIONAL FUNCIONAMIENTO<br> 
-     -Volante Logitech G-29.<br>
-     -Jostick Generico.<br><br>
-     DESARROLLO<br>
-     -Version 10.5<br>
-  </p>
-  <p class="tecnica">
-   
-  </p>
-<!-- Contenedor 2 -->
-  <a href="#" class="tarjeta-entrenamiento tarjeta-docker">
-    <div class="contenido-tarjeta">
-      <h3>P.C</h3>
-    </div>
-  </a>
+  <script>
+    if (localStorage.getItem("loggedIn") !== "true") {
+      alert("Debes iniciar sesión para acceder.");
+      window.location.href = "login.html";
+    }
+  </script>
+  <div class="foto-contenedor">
 
-</div>
+  </div>
+  <div class="bloque-categorias">
+    <h2>🎮 Categorías: Juegos para Ordenador</h2>
+    <p>
+      🖥️ Explora una selección exclusiva de juegos de simulación diseñados especialmente para PC.
+      🚗 Compatibles únicamente con el volante <strong>Logitech G29</strong>, estos títulos ofrecen una experiencia de
+      conducción envolvente, precisa y emocionante.
+      🏁 ¡Siente cada curva, cada frenada y compite como un verdadero piloto!
+    </p>
+  </div>
+  <div class="contenedores-entrenamiento">
+    <!-- Contenedor 1 -->
+    <h2 class="formula">FORMULA 4000 GT</h2>
+    <a href="https://mega.nz/folder/AGAVkAKa#oD3nKWniI1cBlIuVcu235Q" class="tarjeta-entrenamiento tarjeta-juegos">
+      <div class="contenido-tarjeta">
+
+        <h3 i class="fa fa-download"> - Descargar</h3>
+      </div>
+    </a>
+    <p class="tecnica">
+      <strong>📦 CARACTERISTICAS:</strong><br>
+      • Descarga en formato ZIP (2.3 GB)<br>
+      • Requiere mínimo 16 GB de memoria RAM<br><br>
+
+      <strong>⚙️ Opcional para mejor experiencia:</strong><br>
+      • Volante <em>Logitech G29</em><br>
+      • Joystick genérico<br><br>
+
+      <strong>🛠️ Versión de desarrollo:</strong><br>
+      • v10.5
+    </p>
+    <p class="te">
+
+    </p>
+    <!-- Contenedor 2 -->
+    <a href="#" class="tarjeta-entrenamiento tarjeta-docker">
+      <div class="contenido-tarjeta">
+        <h3>P.C</h3>
+      </div>
+    </a>
+
+  </div>
 
 </body>
