@@ -20,7 +20,7 @@
       <ul>
         <li><a href="#">Inicio</a></li>
         <li><a href="#entretenimiento">Entretenimiento</a></li>
-        <li><a href="#retos-destacados">Retos</a></li>
+        <li><a href="#faq">Informativo</a></li>
         <li><a href="#repositorios">Repositorios</a></li>
         <li><a href="#contactar">Contactar</a></li>
        
@@ -36,41 +36,78 @@
 
   <div class="texto-bienvenida">
     <h1>The Docker-Machins</h1>
-    <h2>> Crea. Vulnera. Explota. Repite.</h2>
+    <h2>🔥 Docker no es seguro… si tú sabes cómo romperlo.</h2>
     <p>
-      La plataforma líder en entrenamiento de ciberseguridad, soluciones empresariales y desafíos prácticos de hacking diseñados por expertos de la industria.
-      Y lo mejor de todo: ¡Todo es completamente gratis!<br>
-      ¡Ponte a prueba, aprende y compite con la comunidad hacker!
+      <br>
+Hackea contenedores, explota configuraciones mal hechas y entrena tus habilidades en un entorno realista.<br>
+⚙️ Desafíos prácticos, 100% gratuitos, hechos por expertos en ciberseguridad.<br>
+💥 ¿Aceptas el reto?<br>
+     
     </p>
   </div>
 
   <div class="bloque-categorias" id="entretenimiento">
-    <h2>Categorías de Entrenamiento</h2>
-    <p>Explora nuestras rutas de aprendizaje diseñadas para llevarte de principiante a experto.</p>
+    <h2>🧠 Categoría de Entrenamiento</h2>
+
+
+    <p>
+Explora nuestras rutas de aprendizaje diseñadas para llevarte de principiante a experto, paso a paso y a tu ritmo.
+Desde los fundamentos de la ciberseguridad hasta técnicas avanzadas de explotación, cada categoría está pensada para que aprendas de forma práctica, con desafíos reales y escenarios basados en entornos profesionales.
+
+Ya sea que estés dando tus primeros pasos en el mundo del hacking ético o busques perfeccionar tus habilidades en entornos específicos como redes, sistemas operativos o contenedores Docker, aquí encontrarás el camino ideal para ti.<br>
+
+
+    </p>
   </div>
 
-  <div class="contenedores-entrenamiento" >
-    <a href="juegos.html" class="tarjeta-entrenamiento tarjeta-juegos">
-      <div class="contenido-tarjeta">
-        <h3>Modo Juegos</h3>
-      </div>
-    </a>
-    <a href="docker.html" class="tarjeta-entrenamiento tarjeta-docker">
-      <div class="contenido-tarjeta">
-        <h3>Máquinas Docker</h3>
-      </div>
-    </a>
-  </div>
+  <div class="contenedores-entrenamiento">
+  <a href="juegos.html" class="tarjeta-entrenamiento tarjeta-juegos">
+    <div class="contenido-tarjeta">
+      <i class="fas fa-gamepad icono-tarjeta"></i>
+      <h3>Modo Juegos</h3>
+      <p>Entrena con retos gamificados y desafíos tipo CTF.</p>
+    </div>
+  </a>
+
+  <a href="docker.html" class="tarjeta-entrenamiento tarjeta-docker">
+    <div class="contenido-tarjeta">
+      <i class="fab fa-docker icono-tarjeta"></i>
+      <h3>Máquinas Docker</h3>
+      <p>Hackea entornos Docker mal configurados.</p>
+    </div>
+  </a>
+</div>
 <!-- Aquí creo este div para que se centre bien el Reto-Destacado -->
- <div id="retos-destacados">
+ <div id="faq">
   <p>
     <br><br>
     <br><br>
-    <br><br>
-    <br><br>
+ 
   </p>
  </div>
 
+
+ <section class="faq-section" >
+  <h2>❓ Preguntas Frecuentes</h2>
+  <div class="faq-container">
+    <div class="faq-item">
+      <h3>¿Necesito registrarme para usar las máquinas?</h3>
+      <p>No. Puedes acceder a la mayoría de recursos sin registro. Solo necesitas iniciar sesión para desbloquear secciones protegidas.</p>
+    </div>
+    <div class="faq-item">
+      <h3>¿Las máquinas son persistentes?</h3>
+      <p>No. Todas están diseñadas para ser efímeras, como en un entorno real de pentesting. Reinicias, empiezas de cero.</p>
+    </div>
+    <div class="faq-item">
+      <h3>¿Puedo proponer un reto?</h3>
+      <p>¡Claro! Contáctame a través de Telegram o GitHub. Si tu reto es original y educativo, lo publicamos.</p>
+    </div>
+    <div class="faq-item">
+      <h3>¿Los retos son 100% gratuitos?</h3>
+      <p>Sí. Todo el contenido está disponible de forma gratuita para la comunidad.</p>
+    </div>
+  </div>
+</section>
 
   <div class="retos-destacados" >
     <h2>Retos Destacados</h2>
@@ -81,7 +118,17 @@
   <!-- Contenedor padre para los cards -->
   <!-- Puedes agregar más tarjetas aquí -->
   <!-- <div class="card medio">...</div> -->
-<h3 style="text-align:center; color: #4caf50; font-weight: bold;">🎲 Reto aleatorio cargado</h3>
+ 
+
+<h3 id="mensaje-dado" style="text-align:center; color: #4caf50; font-weight: bold;">
+ 🎲 Haz clic en lanzar el dado para descubrir un reto
+</h3>
+
+<h3 class="titulo-dado" id="icono-dado">🎲</h3>
+
+<button id="boton-dado" style="display: block; margin: 0 auto; padding: 10px 20px; font-weight: bold; background-color: #4caf50; color: white; border: none; border-radius: 8px; cursor: pointer;">
+  Lanzar dado
+</button>
 
 <div class="bloque-protegido">
 
@@ -176,6 +223,10 @@
   </div>
 </div>
 
+
+
+
+
 <div class="Contactar" id="contactar">
   <h2>Desarroyador</h2>
   <p>Puedes contactar con el creador de la página a través de las siguientes <em>REDES SOCIALES</em>.</p>
@@ -213,8 +264,11 @@
 <script>
   const logoutLink = document.getElementById("logout-link");
   const loginLink = document.getElementById("login-link");
+
   const contenedor = document.querySelector(".contenedores-entrenamiento");
   const contenedorProtegido = document.querySelector(".bloque-protegido");
+  const botonDado = document.getElementById("boton-dado");
+  const redesSociales = document.querySelector(".redes-sociales"); // 🔒 redes sociales
 
   const loggedIn = localStorage.getItem("loggedIn") === "true";
 
@@ -223,7 +277,8 @@
 
     bloque.style.pointerEvents = "none";
     bloque.style.opacity = "0.5";
-    bloque.querySelectorAll("a, button").forEach(el => {
+
+    bloque.querySelectorAll?.("a, button").forEach(el => {
       el.addEventListener("click", function(e) {
         e.preventDefault();
         alert("Debes iniciar sesión para acceder a esta sección.");
@@ -244,12 +299,16 @@
 
     habilitar(contenedor);
     habilitar(contenedorProtegido);
+    habilitar(botonDado);
+    habilitar(redesSociales); // ✅ habilitar redes
   } else {
     logoutLink.style.display = "none";
     loginLink.style.display = "inline";
 
     proteger(contenedor);
     proteger(contenedorProtegido);
+    proteger(botonDado);
+    proteger(redesSociales); // ❌ bloquear redes
   }
 
   logoutLink.addEventListener("click", function(e) {
@@ -261,16 +320,32 @@
 
 <script>
   document.addEventListener("DOMContentLoaded", function () {
+    const boton = document.getElementById("boton-dado");
+    const dado = document.getElementById("icono-dado");
+    const mensaje = document.getElementById("mensaje-dado");
     const cards = document.querySelectorAll(".bloque-protegido .card");
 
-    // Oculta todos los contenedores
-    cards.forEach(card => card.style.display = "none");
+    boton.addEventListener("click", function () {
+      // Ocultar todos los retos
+      cards.forEach(card => card.style.display = "none");
 
-    // Si hay al menos uno, muestra uno aleatorio
-    if (cards.length > 0) {
-      const randomIndex = Math.floor(Math.random() * cards.length);
-      cards[randomIndex].style.display = "block";
-    }
+      // Animar el dado 🎲
+      dado.classList.remove("animar-dado");
+      void dado.offsetWidth; // Reinicio de animación
+      dado.classList.add("animar-dado");
+
+      // Esperar que termine la animación
+      setTimeout(() => {
+        // Mostrar un reto aleatorio
+        const randomIndex = Math.floor(Math.random() * cards.length);
+        if (cards.length > 0) {
+          cards[randomIndex].style.display = "block";
+        }
+
+        // Cambiar mensaje después del lanzamiento
+        mensaje.textContent = "🎲 Reto aleatorio cargado";
+      }, 800);
+    });
   });
 </script>
 
