@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -13,29 +14,30 @@
 <!-- CABECERA FIJA FUERA DEL BODY -->
 <header class="cabecera">
   <img class="img-Foto" src="imagenes/copyright.png" alt="Logo" />
-<div class="search-container">
-      <input type="text" id="searchInput" placeholder="🔎  Buscar Maquina...">
-    </div>
+  <div class="search-container">
+    <input type="text" id="searchInput" placeholder="🔎  Buscar Maquina...">
+  </div>
   <h2 class="titulo">Docker-Machins</h2>
 
   <button class="menu-toggle" aria-label="Abrir menú">☰</button>
 
   <div class="links" id="menu">
     <ul>
+      <li><a class="toggle"><i class="fa fa-download"></i> Descargar Auto Inicio</a></li>
       <li><a href="index.html">EXIT</a></li>
-     
     </ul>
   </div>
 </header>
+
 <body>
 
   <script>
-  if (localStorage.getItem("loggedIn") !== "true") {
-    alert("Debes iniciar sesión para acceder.");
-    window.location.href = "login.html";
-  }
-</script>
-    <div class="filter-buttons">
+    if (localStorage.getItem("loggedIn") !== "true") {
+      alert("Debes iniciar sesión para acceder.");
+      window.location.href = "login.html";
+    }
+  </script>
+  <div class="filter-buttons">
 
     <button class="btn-muy-facil" onclick="filterCards('muy-facil'), mostrar_mensaje('mensaje')">Muy Fácil (<span
         id="count-muy-facil">0</span>)</button>
@@ -47,7 +49,7 @@
         id="count-dificil">0</span>)</button>
     <button class="btn-todos" onclick="filterCards('todos'), mostrar_mensaje5('mensaje5')">Todos (<span
         id="count-todos">0</span>)</button>
-<ul class="menu">
+    <ul class="menu">
       <li>
         <ul class="dropdown">
           <li><a class="t1"
@@ -57,21 +59,17 @@
         </ul>
       </li>
     </ul>
-    <a class="toggle"><i class="fa fa-download"></i>​​Descargar Auto Inicio</a>
-
-   
-
 
   </div>
 
-<div>
+  <div class="centrado">
     <h1 class="tipo" id="mensaje">Categoria Muy-Facil</h1>
     <h1 class="tipo" id="mensaje2">Categoria Facil</h1>
     <h1 class="tipo" id="mensaje3">Categoria Medio</h1>
     <h1 class="tipo" id="mensaje4">Categoria Dificil</h1>
     <h1 class="tipo" id="mensaje5">Categoria Todas</h1>
   </div>
-<div class="container">
+  <div class="container">
 
     <!-- Muy fácil -->
     <div class="card muy-facil">
@@ -90,7 +88,7 @@
       <div class="actions"><a href="https://mega.nz/file/ejemplo3"
           target="_blank">​📂Descargar</a><button>​💡​​Descripción</button><button>📖 ​Info</button></div>
     </div>
-<div class="card facil">
+    <div class="card facil">
       <h3>OpenStudio</h3>
       <div class="actions"><a href="https://mega.nz/file/tGQy1QRL#h2NZdngmemM12iAeE3wqi9jv1xO9Q1TWd6XUxZwOauE&st"
           target="_blank">​📂​Des(139Mg)</a><button onclick="mostrarCuadro0('imagen0')">💡​Descripción</button><button
@@ -133,7 +131,7 @@
           target="_blank">​📂​Des(141.4Mg)</a><button onclick="mostrarCuadro7('imagen7')">💡​Descripción</button><button
           onclick="window.open('reportes/reporterCHOCOLATE.txt', '_blank')">📖 ​Info</button></div>
     </div>
-<!-- Medio -->
+    <!-- Medio -->
     <div class="card medio">
       <h3>Anonymous</h3>
       <div class="actions"><a href="https://mega.nz/file/4bRUxCbT#rNaXKPpxbbmCnbvpjzSpl_n5lmgV1deQB3XmQVPtLQ4"
@@ -188,7 +186,7 @@
           onclick="mostrarCuadro17('imagen17')">💡​Descripción</button><button
           onclick="window.open('reportes/reporterINVICTUS.txt', '_blank')">📖 ​Info</button></div>
     </div>
-<!-- Difícil -->
+    <!-- Difícil -->
     <div class="card dificil">
       <h3>Canario</h3>
       <div class="actions"><a href="https://mega.nz/file/AboQALoI#g9YH_YhImwJ337Em6_M2wsdpvnTSemEYvg32J-R2wzE"
@@ -234,7 +232,7 @@
       dropdown.classList.toggle('show');
     });
   </script>
-<script>
+  <script>
     function cerrarSesion() {
       localStorage.removeItem("isLoggedIn");
       localStorage.removeItem("usuario");
@@ -243,7 +241,7 @@
     }
   </script>
 
-<script>
+  <script>
     function updateCounts() {
       const categories = ['muy-facil', 'facil', 'medio', 'dificil'];
       let total = 0;
@@ -287,7 +285,7 @@
       document.getElementById(id).style.display = 'block';
     }
   </script>
-<script>
+  <script>
     document.getElementById('searchInput').addEventListener('input', function () {
       const query = this.value.toLowerCase();
       const cards = document.querySelectorAll('.card');
@@ -303,7 +301,7 @@
     });
   </script>
 
-<script>
+  <script>
     function filterCards(category) {
 
       const cards = document.querySelectorAll('.card');
@@ -491,7 +489,7 @@
   </div>
 
   <script>
-   
+
 
     document.getElementById("mensaje5").style.display = "block"
     document.getElementById("imagen1").style.display = "none"
